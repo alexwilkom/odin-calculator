@@ -1,0 +1,80 @@
+:root {
+    /* Colors */
+    --color-primary: hsl(40, 5%, 25%);
+    --color-secondary: hsl(34, 4%, 35%);
+    --color-tertiary: hsl(36, 2%, 46%);
+    --color-tertiary-active: hsla(36, 2%, 46%, 0.5);
+    --color-accent: hsl(32, 83%, 54%);
+    --color-accent-active: hsl(32, 71%, 45%);
+
+    --border: 0.5px solid var(--color-primary);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#calculator {
+    width: 20rem;
+    border: var(--border);
+}
+
+#display {
+    padding: 0.5rem;
+    font-size: 3rem;
+    text-align: end;
+    border: var(--border);
+    background-color: var(--color-primary);
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button {
+    width: 25%;
+    border: var(--border);
+    padding: 1rem;
+    cursor: pointer;
+    background-color: var(--color-tertiary);
+    color: inherit;
+}
+
+button[value="0"] {
+    width: 50%;
+}
+
+button:active {
+    background-color: var(--color-tertiary-active)
+}
+
+.operator {
+    background-color: var(--color-accent);
+}
+
+.operator:active {
+    background-color: var(--color-accent-active);
+}
+
+.clear,
+.sign,
+.percent {
+    background-color: var(--color-secondary);
+}
+
+.clear:active,
+.sign:active,
+.percent:active {
+    background-color: var(--color-tertiary);
+}
