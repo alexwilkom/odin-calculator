@@ -27,3 +27,26 @@ const percentBtn = document.querySelector(".percent");
 const decimal = document.querySelector(".decimal");
 const operands = document.querySelectorAll(".operand");
 const operators = document.querySelectorAll(".operator");
+
+let leftOperand = "";
+let rightOperand = "";
+let operator = "";
+
+function displayText(value) {
+    const displayText = display.textContent;
+    if (displayText !== "0") {
+        display.textContent += value;
+    } else {
+        display.textContent = "";
+        display.textContent = value;
+    }
+}
+
+operands.forEach(operand => {
+    operand.addEventListener("click", (event) => {
+        const value = event.target.textContent;
+        displayText(value);
+        if (!operator) leftOperand += value
+        else rightOperand += value
+    })
+})
