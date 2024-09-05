@@ -20,3 +20,10 @@ const operations = {
     }
 }
 
+const display = document.querySelector("#display");
+const clearBtn = document.querySelector(".clear");
+const signBtn = document.querySelector(".sign");
+const percentBtn = document.querySelector(".percent");
+const decimal = document.querySelector(".decimal");
+const operands = document.querySelectorAll(".operand");
+const operators = document.querySelectorAll(".operator");
