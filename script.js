@@ -12,7 +12,6 @@ const clearBtn = document.querySelector(".clear");
 function operate(operator, a, b) {
     const x = Number(a);
     const y = Number(b);
-    isClear = true;
     if (operator === "+") {
         return String(x + y);
     } else if (operator === "-") {
@@ -20,8 +19,14 @@ function operate(operator, a, b) {
     } else if (operator === "x") {
         return String(x * y);
     } else if (operator === "/") {
-        if (y === 0) return "Can't divide by zero";
-        else return String(x / y);
+        if (y === 0) {
+            return "Can't divide"
+        } else {
+            if (Number.isInteger(x / y)) {
+                return String(x / y)
+            }
+            return String((x / y).toFixed(3))
+        }
     }
 }
 
