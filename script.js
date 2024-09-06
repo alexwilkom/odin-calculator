@@ -4,10 +4,12 @@ let secondNumber = "";
 let isClear = true;
 const operands = document.querySelectorAll(".operand");
 const operators = document.querySelectorAll(".operator");
+const equals = document.querySelector(".equals");
 
-function operate(a, b, operator) {
+function operate(operator, a, b) {
     const x = Number(a);
     const y = Number(b);
+    isClear = true;
     if (operator === "+") {
         return String(x + y);
     } else if (operator === "-") {
@@ -45,4 +47,9 @@ operators.forEach(operator => {
         selectedOperator = symbol;
         isClear = true;
     })
+})
+
+equals.addEventListener("click", event => {
+    const result = operate(selectedOperator, firstNumber, secondNumber);
+    displayText(result);
 })
