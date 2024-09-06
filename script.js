@@ -79,6 +79,15 @@ function handleOperators(operator) {
 
 operators.forEach(operator => { operator.addEventListener("click", handleOperators) });
 
+function calculate() {
+    secondOperand += displayValue;
+    result = operate(firstOperator, firstOperand, secondOperand);
+    displayValue = result;
+    updateDisplay(displayValue);
+    firstOperand = result;
+    secondOperand = "";
+}
+
 
 equals.addEventListener("click", () => {
     if (!selectedOperator) return;
