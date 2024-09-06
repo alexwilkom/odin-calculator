@@ -52,4 +52,7 @@ operators.forEach(operator => {
 equals.addEventListener("click", event => {
     const result = operate(selectedOperator, firstNumber, secondNumber);
     displayText(result);
+    firstNumber = result;
+    secondNumber = "";
+    selectedOperator = "";
 })
