@@ -1,8 +1,9 @@
-let firstNumber = "";
-let selectedOperator;
-let secondNumber = "";
-let isClear = true;
-const textDisplay = document.querySelector("#display");
+let firstOperand = "";
+let secondOperand = "";
+let firstOperator = "";
+let displayValue = "0";
+let result = "";
+
 const operands = document.querySelectorAll(".operand");
 const operators = document.querySelectorAll(".operator");
 const equals = document.querySelector(".equals");
