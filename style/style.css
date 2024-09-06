@@ -59,11 +59,13 @@ button:active {
     background-color: var(--color-tertiary-active)
 }
 
-.operator {
+.operator,
+.equals {
     background-color: var(--color-accent);
 }
 
-.operator:active {
+.operator:active,
+.equals:active {
     background-color: var(--color-accent-active);
 }
 
