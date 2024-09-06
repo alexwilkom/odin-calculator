@@ -2,9 +2,11 @@ let firstNumber = "";
 let selectedOperator;
 let secondNumber = "";
 let isClear = true;
+const textDisplay = document.querySelector("#display");
 const operands = document.querySelectorAll(".operand");
 const operators = document.querySelectorAll(".operator");
 const equals = document.querySelector(".equals");
+const clearBtn = document.querySelector(".clear");
 
 function operate(operator, a, b) {
     const x = Number(a);
@@ -17,13 +19,12 @@ function operate(operator, a, b) {
     } else if (operator === "x") {
         return String(x * y);
     } else if (operator === "/") {
-        if (y === 0) return "Can't divide by zero"
+        if (y === 0) return "Can't divide by zero";
         else return String(x / y);
     }
 }
 
 function displayText(value) {
-    const textDisplay = document.querySelector("#display");
     if (isClear) {
         textDisplay.textContent = value;
         isClear = false;
@@ -32,12 +33,23 @@ function displayText(value) {
     }
 }
 
+function clear() {
+    firstNumber = "";
+    selectedOperator = "";
+    secondNumber = "";
+    textDisplay.textContent = "0";
+    isClear = true;
+}
+
 operands.forEach(operand => {
     operand.addEventListener("click", event => {
         const number = event.target.value;
         displayText(number);
-        if (firstNumber && selectedOperator) secondNumber += number;
-        else firstNumber += number;
+        if (firstNumber && selectedOperator) {
+            secondNumber += number;
+        } else {
+            firstNumber += number
+        }
     })
 })
 
@@ -49,7 +61,7 @@ operators.forEach(operator => {
     })
 })
 
-equals.addEventListener("click", event => {
+equals.addEventListener("click", () => {
     if (!selectedOperator) return;
     const result = operate(selectedOperator, firstNumber, secondNumber);
     displayText(result);
@@ -57,3 +69,5 @@ equals.addEventListener("click", event => {
     secondNumber = "";
     selectedOperator = "";
 })
+
+clearBtn.addEventListener("click", clear);
