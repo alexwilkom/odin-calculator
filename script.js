@@ -1,3 +1,9 @@
+let firstNumber;
+let operator;
+let secondNumber;
+let isClear = true;
+const operands = document.querySelectorAll(".operand");
+
 function operate(a, b, operator) {
     if (operator === "+") {
         return String(a + b);
@@ -10,3 +16,20 @@ function operate(a, b, operator) {
         else String(a / b);
     }
 }
+
+function displayText(value) {
+    const textDisplay = document.querySelector("#display");
+    if (isClear) {
+        textDisplay.textContent = value;
+        isClear = false
+    } else {
+        textDisplay.textContent += value;
+    }
+}
+
+operands.forEach(operand => {
+    operand.addEventListener("click", event => {
+        const number = event.target.value;
+        displayText(number);
+    })
+})
