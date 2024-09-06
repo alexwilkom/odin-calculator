@@ -10,7 +10,7 @@ const equals = document.querySelector(".equals");
 const clearBtn = document.querySelector(".clear");
 
 function handleOperands(operand) {
-    const selectedOperand = operand.target.value;
+    const selectedOperand = operand.target.textContent;
     if (firstOperator === "") {
         if (displayValue === "0") {
             displayValue = selectedOperand;
@@ -30,7 +30,7 @@ function handleOperands(operand) {
 }
 
 function handleOperators(operator) {
-    const selectedOperator = operator.target.value;
+    const selectedOperator = operator.target.textContent;
     if (!firstOperator) {
         firstOperand = displayValue;
         firstOperator = selectedOperator;
