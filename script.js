@@ -43,17 +43,28 @@ function clear() {
     isClear = true;
 }
 
-operands.forEach(operand => {
-    operand.addEventListener("click", event => {
-        const number = event.target.value;
-        displayText(number);
-        if (firstNumber && selectedOperator) {
-            secondNumber += number;
+function handleOperands(operand) {
+    const selectedOperand = operand.target.value;
+    if (firstOperator === "") {
+        if (displayValue === "0") {
+            displayValue = selectedOperand;
+        } else if (displayValue === firstOperand) {
+            displayValue = selectedOperand;
         } else {
-            firstNumber += number
+            displayValue += selectedOperand;
         }
-    })
-})
+    } else {
+        if (displayValue === firstOperand) {
+            displayValue = selectedOperand;
+        } else {
+            displayValue += selectedOperand;
+        }
+    }
+    updateDisplay(displayValue);
+}
+
+operands.forEach(operand => { operand.addEventListener("click", handleOperands) })
+
 
 operators.forEach(operator => {
     operator.addEventListener("click", event => {
