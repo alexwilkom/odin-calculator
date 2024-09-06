@@ -36,11 +36,12 @@ function updateDisplay(value) {
 }
 
 function clear() {
-    firstNumber = "";
-    selectedOperator = "";
-    secondNumber = "";
-    textDisplay.textContent = "0";
-    isClear = true;
+    displayValue = "0";
+    firstOperand = "";
+    secondOperand = "";
+    firstOperator = "";
+    result = "";
+    updateDisplay(displayValue);
 }
 
 function handleOperands(operand) {
