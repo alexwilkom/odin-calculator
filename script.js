@@ -66,13 +66,19 @@ function handleOperands(operand) {
 operands.forEach(operand => { operand.addEventListener("click", handleOperands) })
 
 
-operators.forEach(operator => {
-    operator.addEventListener("click", event => {
-        const symbol = event.target.value;
-        selectedOperator = symbol;
-        isClear = true;
-    })
-})
+function handleOperators(operator) {
+    const selectedOperator = operator.target.value;
+    if (!firstOperator) {
+        firstOperand = displayValue;
+        firstOperator = selectedOperator;
+    } else {
+        calculate();
+        firstOperator = selectedOperator;
+    }
+}
+
+operators.forEach(operator => { operator.addEventListener("click", handleOperators) });
+
 
 equals.addEventListener("click", () => {
     if (!selectedOperator) return;
