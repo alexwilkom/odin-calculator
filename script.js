@@ -88,14 +88,12 @@ function calculate() {
     secondOperand = "";
 }
 
+function handleEquals() {
+    if (!firstOperator) return;
+    calculate();
+    firstOperator = "";
+}
 
-equals.addEventListener("click", () => {
-    if (!selectedOperator) return;
-    const result = operate(selectedOperator, firstNumber, secondNumber);
-    displayText(result);
-    firstNumber = result;
-    secondNumber = "";
-    selectedOperator = "";
-})
+equals.addEventListener("click", handleEquals)
 
 clearBtn.addEventListener("click", clear);
