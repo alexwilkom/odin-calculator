@@ -34,7 +34,8 @@ operands.forEach(operand => {
     operand.addEventListener("click", event => {
         const number = event.target.value;
         displayText(number);
-        firstNumber += number;
+        if (firstNumber && selectedOperator) secondNumber += number;
+        else firstNumber += number;
     })
 })
 
