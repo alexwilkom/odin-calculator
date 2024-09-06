@@ -50,6 +50,7 @@ operators.forEach(operator => {
 })
 
 equals.addEventListener("click", event => {
+    if (!selectedOperator) return;
     const result = operate(selectedOperator, firstNumber, secondNumber);
     displayText(result);
     firstNumber = result;
