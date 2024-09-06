@@ -30,13 +30,9 @@ function operate(operator, a, b) {
     }
 }
 
-function displayText(value) {
-    if (isClear) {
-        textDisplay.textContent = value;
-        isClear = false;
-    } else {
-        textDisplay.textContent += value;
-    }
+function updateDisplay(value) {
+    const textDisplay = document.querySelector("#display");
+    textDisplay.textContent = value;
 }
 
 function clear() {
